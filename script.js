@@ -271,3 +271,33 @@ document.getElementById('agendamento-form').addEventListener('submit', function(
     // Abre em nova aba
     window.open(url, '_blank');
 });
+
+// Funções para a Constelação Familiar (já deve existir algo similar)
+function fecharOrigem() {
+    document.getElementById('modal-origem').style.display = 'none';
+}
+
+// NOVAS funções para a Constelação Organizacional
+function abrirOrganizacional() {
+    document.getElementById('modal-organizacional').style.display = 'flex';
+}
+
+function fecharOrganizacional() {
+    document.getElementById('modal-organizacional').style.display = 'none';
+}
+
+function abrirOrigem() {
+    document.getElementById('modal-origem').style.display = 'flex';
+}
+
+function fecharOrigem() {
+    document.getElementById('modal-origem').style.display = 'none';
+}
+
+function abrirOrganizacional() {
+    document.getElementById('modal-organizacional').style.display = 'flex';
+}
+
+function fecharOrganizacional() {
+    document.getElementById('modal-organizacional').style.display = 'none';
+}

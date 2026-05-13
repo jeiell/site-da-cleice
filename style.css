@@ -1883,3 +1883,13 @@ main {
     margin-top: 10px;
     font-size: 0.95rem;
 }
+.lista-recuada {
+    padding-left: 60px; /* Aumente este número se quiser mais para a direita */
+    margin-top: 15px;   /* Espaço entre o texto de cima e a lista */
+    list-style-position: outside; /* Mantém as bolinhas alinhadas corretamente */
+}
+
+.lista-recuada li {
+    margin-bottom: 8px; /* Dá um respiro entre um item e outro */
+    color: #444;        /* Cor suave para manter o estilo minimalista */
+}
