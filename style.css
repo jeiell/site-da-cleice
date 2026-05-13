@@ -1893,3 +1893,23 @@ main {
     margin-bottom: 8px; /* Dá um respiro entre um item e outro */
     color: #444;        /* Cor suave para manter o estilo minimalista */
 }
+
+/* Ajuste específico para telas de celular */
+@media (max-width: 768px) {
+    .servico-body {
+        text-align: left !important; /* Força o alinhamento do bloco à esquerda */
+    }
+
+    .lista-recuada {
+        display: block;
+        text-align: left !important;
+        padding-left: 20px; /* Dá um recuo para as bolinhas não colarem na borda */
+        margin: 15px 0;
+    }
+
+    .lista-recuada li {
+        text-align: left !important;
+        list-style-position: outside; /* Mantém a bolinha alinhada fora do texto */
+        margin-bottom: 10px;
+    }
+}
