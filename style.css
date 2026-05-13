@@ -1896,20 +1896,35 @@ main {
 
 /* Ajuste específico para telas de celular */
 @media (max-width: 768px) {
+    /* 1. Alinha o bloco de texto e listas à esquerda */
     .servico-body {
-        text-align: left !important; /* Força o alinhamento do bloco à esquerda */
+        text-align: left !important;
     }
 
     .lista-recuada {
         display: block;
         text-align: left !important;
-        padding-left: 20px; /* Dá um recuo para as bolinhas não colarem na borda */
+        padding-left: 20px;
         margin: 15px 0;
     }
 
     .lista-recuada li {
         text-align: left !important;
-        list-style-position: outside; /* Mantém a bolinha alinhada fora do texto */
+        list-style-position: outside;
         margin-bottom: 10px;
+    }
+
+    /* 2. NOVO: Centraliza apenas o título e quebra a linha */
+    .servico-card h3.block-title {
+        text-align: center !important;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        line-height: 1.2;
+        margin-bottom: 15px;
+    }
+
+    .servico-card h3.block-title em {
+        display: block; 
     }
 }
