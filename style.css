@@ -1127,12 +1127,14 @@ main {
     text-transform: uppercase;
     margin-bottom: 14px;
     opacity: 0.75;
+    
 }
 
 .footer-col {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    margin: auto;
 }
 
 .footer-col a {

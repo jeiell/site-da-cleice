@@ -245,3 +245,29 @@ function loadVideo(container, videoId) {
     container.innerHTML = '';
     container.appendChild(iframe);
 }
+
+document.getElementById('agendamento-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    // Capturando os dados pelos IDs que estão no seu código
+    const nome = document.getElementById('nome').value;
+    const email = document.getElementById('email').value;
+    const tel = document.getElementById('whatsapp-input').value;
+    const servico = document.getElementById('servico').value;
+
+    // Número da Cleiciane (ajuste conforme necessário)
+    const meuNumero = "5599988219080"; 
+
+    // Criando a mensagem
+    const mensagem = `Olá, Cleiciane! Gostaria de solicitar um orçamento:%0A%0A` +
+                     `*Nome:* ${nome}%0A` +
+                     `*E-mail:* ${email}%0A` +
+                     `*WhatsApp:* ${tel}%0A` +
+                     `*Serviço:* ${servico}`;
+
+    // Link do WhatsApp
+    const url = `https://wa.me/${meuNumero}?text=${mensagem}`;
+    
+    // Abre em nova aba
+    window.open(url, '_blank');
+});
