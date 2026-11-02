@@ -181,123 +181,156 @@ if (menuToggle && nav && navLinks) {
     goTo(0);
 })();
 
-// Lógica para carregar os vídeos sem os títulos do YouTube
-document.addEventListener('DOMContentLoaded', () => {
-    const containers = document.querySelectorAll('.video-container');
-    
-    containers.forEach(container => {
-        container.addEventListener('click', function() {
-            const id = this.getAttribute('data-video-id');
-            const iframe = document.createElement('iframe');
-            
-            // Ativa autoplay e esconde marcas do YouTube
-            iframe.setAttribute('src', `https://www.youtube.com/embed/${id}?autoplay=1&rel=0&modestbranding=1`);
-            iframe.setAttribute('frameborder', '0');
-            iframe.setAttribute('allow', 'autoplay; encrypted-media; picture-in-picture');
-            iframe.setAttribute('allowfullscreen', 'true');
-            iframe.style.position = 'absolute';
-            iframe.style.top = '0';
-            iframe.style.left = '0';
-            iframe.style.width = '100%';
-            iframe.style.height = '100%';
-            
-            this.innerHTML = '';
-            this.appendChild(iframe);
+// MODAIS (com bloqueio de rolagem)
+const modalOrg = document.getElementById('modal-organizacional');
+function toggleModal(el, open) {
+    if (!el) return;
+    el.style.display = open ? 'flex' : 'none';
+    const algumAberto = [modalForm, modalOrigem, modalOrg].some(m => m && m.style.display === 'flex');
+    document.body.style.overflow = algumAberto ? 'hidden' : '';
+}
+function abrirModal() { toggleModal(modalForm, true); }
+function fecharModal() { toggleModal(modalForm, false); }
+function abrirOrigem() { toggleModal(modalOrigem, true); }
+function fecharOrigem() { toggleModal(modalOrigem, false); }
+function abrirOrganizacional() { toggleModal(modalOrg, true); }
+function fecharOrganizacional() { toggleModal(modalOrg, false); }
+
+window.onclick = (e) => {
+    if (e.target === modalForm) fecharModal();
+    if (e.target === modalOrigem) fecharOrigem();
+    if (e.target === modalOrg) fecharOrganizacional();
+};
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') { fecharModal(); fecharOrigem(); fecharOrganizacional(); }
+});
+
+// FORMULÁRIO -> WHATSAPP
+const form = document.getElementById('agendamento-form');
+if (form) {
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const val = (id) => document.getElementById(id).value.trim();
+        const numero = '5599988219080';
+        const texto = 'Olá, Cleiciane! Gostaria de solicitar um orçamento:\n\n' +
+            `*Nome:* ${val('nome')}\n*E-mail:* ${val('email')}\n` +
+            `*WhatsApp:* ${val('whatsapp-input')}\n*Serviço:* ${val('servico')}`;
+        window.open(`https://wa.me/${numero}?text=${encodeURIComponent(texto)}`, '_blank', 'noopener');
+        const msg = document.getElementById('form-msg');
+        if (msg) msg.textContent = 'Abrindo o WhatsApp… se não abrir, libere os pop-ups do navegador.';
+        setTimeout(() => { fecharModal(); form.reset(); if (msg) msg.textContent = ''; }, 1800);
+    });
+}
+
+// BARRA DE PROGRESSO + MENU ATIVO
+(function () {
+    const bar = document.createElement('div');
+    bar.className = 'scroll-progress';
+    bar.setAttribute('aria-hidden', 'true');
+    document.body.appendChild(bar);
+    const atualizar = () => {
+        const max = document.documentElement.scrollHeight - window.innerHeight;
+        bar.style.transform = `scaleX(${max > 0 ? window.scrollY / max : 0})`;
+    };
+    atualizar();
+    window.addEventListener('scroll', atualizar, { passive: true });
+
+    const links = document.querySelectorAll('.nav-links a[href^="#"]');
+    const spy = new IntersectionObserver((entries) => {
+        entries.forEach((en) => {
+            if (!en.isIntersecting) return;
+            links.forEach((a) => a.classList.toggle('is-active', a.getAttribute('href') === '#' + en.target.id));
         });
+    }, { rootMargin: '-40% 0px -55% 0px' });
+    links.forEach((a) => { const s = document.querySelector(a.getAttribute('href')); if (s) spy.observe(s); });
+})();
+
+// PULAR ABERTURA
+const skipBtn = document.getElementById('intro-skip');
+if (skipBtn) skipBtn.addEventListener('click', () => {
+    const i = document.getElementById('cinema-intro');
+    if (!i) return;
+    i.classList.add('start-cascade');
+    sessionStorage.setItem('visited', 'true');
+    setTimeout(() => i.remove(), 1600);
+});
+
+// "LER MAIS" NOS SERVIÇOS
+document.querySelectorAll('.servico-body').forEach((body) => {
+    const extras = [...body.children].filter((el) => el.matches('p, ul')).slice(2);
+    if (extras.length < 3) return;
+    const wrap = document.createElement('div');
+    wrap.className = 'mais-conteudo';
+    extras[0].before(wrap);
+    extras.forEach((el) => wrap.appendChild(el));
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'btn-mais';
+    btn.setAttribute('aria-expanded', 'false');
+    btn.textContent = 'Ler mais';
+    wrap.after(btn);
+    btn.addEventListener('click', () => {
+        const aberto = wrap.classList.toggle('is-open');
+        btn.setAttribute('aria-expanded', aberto ? 'true' : 'false');
+        btn.textContent = aberto ? 'Ler menos' : 'Ler mais';
     });
 });
-function loadVideo(container, videoId) {
-    // Cria o iframe do YouTube com autoplay e sem barra de títulos (modestbranding)
-    const iframe = document.createElement('iframe');
-    iframe.setAttribute('src', `https://www.youtube.com/embed/${videoId}?autoplay=1&modestbranding=1&rel=0`);
-    iframe.setAttribute('frameborder', '0');
-    iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');
-    iframe.setAttribute('allowfullscreen', 'true');
-    
-    // Limpa o container (remove imagem e botão) e adiciona o iframe
-    container.innerHTML = '';
-    container.appendChild(iframe);
-}
 
-function loadVideo(container, videoId) {
-    const params = "?autoplay=1&modestbranding=1&rel=0&showinfo=0&controls=1";
-    const iframe = document.createElement('iframe');
-    iframe.setAttribute('src', `https://www.youtube.com/embed/${videoId}${params}`);
-    iframe.setAttribute('frameborder', '0');
-    iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');
-    iframe.setAttribute('allowfullscreen', 'true');
-    container.innerHTML = '';
-    container.appendChild(iframe);
-}
+(function () {
+    var btn = document.getElementById('btn-sobre-mais');
+    var box = document.getElementById('sobre-mais');
+    if (!btn || !box) return;
+    var container = box.closest('.container');
 
-function loadVideo(container, videoId) {
-    // Parâmetros: autoplay=1 (toca ao carregar), modestbranding=1 (esconde logo), rel=0 (não mostra vídeos aleatórios)
-    const params = "?autoplay=1&modestbranding=1&rel=0&showinfo=0&controls=1";
-    
-    // Cria o elemento do player (iframe)
-    const iframe = document.createElement('iframe');
-    iframe.setAttribute('src', `https://www.youtube.com/embed/${videoId}${params}`);
-    iframe.setAttribute('frameborder', '0');
-    iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');
-    iframe.setAttribute('allowfullscreen', 'true');
-    
-    // Remove a imagem de capa e o botão de play e coloca o vídeo real
-    container.innerHTML = '';
-    container.appendChild(iframe);
-}
+    btn.addEventListener('click', function () {
+        var aberto = box.classList.toggle('is-open');
+        if (container) container.classList.toggle('is-expanded', aberto);
+        btn.setAttribute('aria-expanded', aberto);
+        btn.textContent = aberto ? 'Ler menos' : 'Ler mais';
 
-document.getElementById('agendamento-form').addEventListener('submit', function(e) {
-    e.preventDefault();
+        // ao fechar, volta para o início da seção para não ficar perdido
+        if (!aberto && container) {
+            container.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+    });
+})();
+/* ===== AJUSTES: botões "Agendar" abrem o formulário ===== */
+(function () {
+    var modal = document.getElementById('modal-form');
+    if (!modal) return;
 
-    // Capturando os dados pelos IDs que estão no seu código
-    const nome = document.getElementById('nome').value;
-    const email = document.getElementById('email').value;
-    const tel = document.getElementById('whatsapp-input').value;
-    const servico = document.getElementById('servico').value;
+    var h3 = modal.querySelector('.form-header h3');
+    var sub = modal.querySelector('.form-header p');
+    if (!h3 || !sub) return;
 
-    // Número da Cleiciane (ajuste conforme necessário)
-    const meuNumero = "5599988219080"; 
+    var original = { titulo: h3.textContent, sub: sub.textContent };
+    var agendando = false;
 
-    // Criando a mensagem
-    const mensagem = `Olá, Cleiciane! Gostaria de solicitar um orçamento:%0A%0A` +
-                     `*Nome:* ${nome}%0A` +
-                     `*E-mail:* ${email}%0A` +
-                     `*WhatsApp:* ${tel}%0A` +
-                     `*Serviço:* ${servico}`;
+    // Usa o botão "Solicitar Orçamento" que já abre o formulário
+    var opener = document.querySelector('.open-modal');
 
-    // Link do WhatsApp
-    const url = `https://wa.me/${meuNumero}?text=${mensagem}`;
-    
-    // Abre em nova aba
-    window.open(url, '_blank');
-});
+    function setTextos(agendar) {
+        h3.textContent = agendar ? 'Agendar uma conversa' : original.titulo;
+        sub.textContent = agendar
+            ? 'Deixe seus dados e entrarei em contato para combinarmos o melhor horário.'
+            : original.sub;
+    }
 
-// Funções para a Constelação Familiar (já deve existir algo similar)
-function fecharOrigem() {
-    document.getElementById('modal-origem').style.display = 'none';
-}
+    // Botões "Solicitar Orçamento": mantêm o título original
+    document.querySelectorAll('.open-modal').forEach(function (b) {
+        b.addEventListener('click', function () {
+            setTextos(agendando);
+            agendando = false;
+        });
+    });
 
-// NOVAS funções para a Constelação Organizacional
-function abrirOrganizacional() {
-    document.getElementById('modal-organizacional').style.display = 'flex';
-}
-
-function fecharOrganizacional() {
-    document.getElementById('modal-organizacional').style.display = 'none';
-}
-
-function abrirOrigem() {
-    document.getElementById('modal-origem').style.display = 'flex';
-}
-
-function fecharOrigem() {
-    document.getElementById('modal-origem').style.display = 'none';
-}
-
-function abrirOrganizacional() {
-    document.getElementById('modal-organizacional').style.display = 'flex';
-}
-
-function fecharOrganizacional() {
-    document.getElementById('modal-organizacional').style.display = 'none';
-}
+    // Botões "Agendar": abrem o mesmo formulário
+    document.querySelectorAll('.js-agendar').forEach(function (a) {
+        a.addEventListener('click', function (e) {
+            if (!opener) return; // sem formulário, segue para o WhatsApp
+            e.preventDefault();
+            agendando = true;
+            opener.click();
+        });
+    });
+})();

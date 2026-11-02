@@ -4,6 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Cleiciane Dias — mentoria sistêmica, constelação familiar e organizacional, palestras e workshops.">
+    <meta name="theme-color" content="#152a52">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:title" content="Cleiciane Dias | Mentoria Sistêmica e Constelação">
+    <meta property="og:description"
+        content="Mentoria sistêmica, constelação familiar e organizacional, palestras e workshops.">
+    <meta property="og:image" content="https://cleicianedias.com.br/capa.jpg"><!-- ajuste para o seu domínio real -->
+    <meta name="twitter:card" content="summary_large_image">
+    <script
+        type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"Cleiciane Dias — Desenvolvimento Humano Sistêmico","url":"https://cleicianedias.com.br","telephone":"+5599988219080","image":"https://cleicianedias.com.br/capa.jpg","sameAs":["https://instagram.com/cleicianepdias/","https://facebook.com/cleiciane.dias.1","https://youtube.com/@cleicianedias3024"]}</script>
     <title>Cleiciane Dias | Mentoria Sistêmica</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,7 +23,9 @@
         href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/x-icon" href="favicon.png">
+    <!-- NOVO: estilos extras (link do WhatsApp no formulário) -->
+    <link rel="stylesheet" href="ajustes.css">
+    <link rel="icon" type="image/png" href="favicon.png">
 </head>
 
 <body>
@@ -21,6 +35,7 @@
             <h2 class="intro-text">Cleiciane <i>Dias</i></h2>
             <span class="intro-phrase">Bem-vinda ao seu processo de <i>cura</i></span>
         </div>
+        <button type="button" class="intro-skip" id="intro-skip">Pular</button>
         <div class="wave-layer layer-1"></div>
         <div class="wave-layer layer-2"></div>
         <div class="wave-layer layer-3"></div>
@@ -43,11 +58,15 @@
             <ul class="nav-links" id="primary-nav">
                 <li><a href="#sobre">Sobre</a></li>
                 <li><a href="#servicos">Serviços</a></li>
-                <li><a href="#videos">Vídeos</a></li>
                 <li><a href="#depoimentos">Depoimentos</a></li>
+                <li><a href="#videos">Vídeos</a></li>
+                <li><a href="#faq">Dúvidas</a></li>
                 <li><a href="#contato">Contato</a></li>
             </ul>
-            <button type="button" class="btn-nav-cta open-modal">Agendar</button>
+            <!-- ALTERADO: js-agendar -->
+            <a class="btn-nav-cta js-agendar"
+                href="https://wa.me/5599988219080?text=Ol%C3%A1%2C%20Cleiciane%21%20Vim%20pelo%20seu%20site%20e%20gostaria%20de%20agendar%20uma%20conversa."
+                target="_blank" rel="noopener noreferrer">Agendar</a>
         </nav>
 
         <div class="hero">
@@ -58,7 +77,10 @@
                 <p class="hero-lead">Um espaço seguro para reorganizar sua história, clarificar padrões e caminhar com
                     mais presença rumo ao que é seu por direito.</p>
                 <div class="hero-actions">
-                    <button type="button" class="btn-primary open-modal">Agendar sessão</button>
+                    <!-- ALTERADO: js-agendar -->
+                    <a class="btn-primary js-agendar"
+                        href="https://wa.me/5599988219080?text=Ol%C3%A1%2C%20Cleiciane%21%20Vim%20pelo%20seu%20site%20e%20gostaria%20de%20agendar%20uma%20conversa."
+                        target="_blank" rel="noopener noreferrer">Agendar uma conversa</a>
                     <a class="btn-ghost" href="#sobre">Conhecer o trabalho</a>
                 </div>
             </div>
@@ -94,8 +116,32 @@
                 <div class="texto-container">
                     <span class="subtitle">Sua guia nessa jornada</span>
                     <h3 class="block-title">Muito prazer, sou <em>Cleiciane</em></h3>
-                    <p>Acredito que a cura verdadeira acontece quando temos a coragem de olhar para as nossas raízes.
-                        Minha missão é guiar você em um profundo mergulho de autoconhecimento.</p>
+
+                    <p>Sou <strong><em>advogada, Mentora Sistêmica, Consteladora Familiar e Organizacional, e Palestrante.</em></strong></p>
+
+                    <p>Ao longo de mais de 20 anos de atuação profissional, acompanhando pessoas em momentos decisivos de suas vidas, percebi que muitos desafios ultrapassavam as questões técnicas e jurídicas. Por trás de conflitos familiares, dificuldades nos relacionamentos, bloqueios profissionais e desafios financeiros, existiam padrões emocionais, relacionais e comportamentais influenciando escolhas, resultados e a forma como cada pessoa conduzia sua vida.</p>
+
+                    <!-- NOVO: texto que expande com "Ler mais" -->
+                    <div class="sobre-mais" id="sobre-mais">
+                        <p>Essa percepção despertou em mim o desejo de compreender mais profundamente as causas que sustentam esses desafios. Foi esse caminho que me conduziu ao desenvolvimento humano e à visão sistêmica, ampliando minha forma de compreender pessoas, conflitos e processos de transformação.</p>
+
+                        <p>Aprofundei meus estudos em comportamento humano, inteligência emocional, relacionamentos e dinâmicas sistêmicas, integrando conhecimento, experiência e prática para ajudar pessoas a identificarem a raiz dos padrões que limitam sua vida pessoal, profissional e afetiva.</p>
+
+                        <p>Hoje, através da Mentoria Sistêmica, da Constelação Familiar e Organizacional, acompanho pessoas e equipes em processos de autoconhecimento, fortalecimento emocional e desenvolvimento, para que possam construir relações mais saudáveis, se posicionar com mais segurança e alcançar resultados mais alinhados com seu potencial.</p>
+
+                        <p>Acredito que mudanças verdadeiras acontecem quando temos a coragem de olhar para a origem dos padrões que se repetem e desenvolver consciência para construir novos caminhos.</p>
+
+                        <p><strong>Porque quando a raiz se transforma, a vida também se transforma.</strong></p>
+                    </div>
+
+                    <button type="button" class="btn-sobre-mais" id="btn-sobre-mais" aria-expanded="false" aria-controls="sobre-mais">Ler mais</button>
+
+                    <div class="chips" aria-label="Áreas de atuação">
+                        <span>Mentoria sistêmica</span><span>Constelação familiar</span>
+                        <span>Constelação organizacional</span><span>Palestras e Treinamentos Sistêmicos.</span>
+                    </div>
+                    <img class="about-logo" src="LOGO_CLEICE.png"
+                        alt="Logotipo Cleiciane Dias — Desenvolvimento Humano Sistêmico" loading="lazy">
                 </div>
             </div>
         </section>
@@ -104,46 +150,81 @@
             <div class="section-heading reveal">
                 <span class="section-label">Serviços</span>
                 <h2 class="section-title">Como posso te <em>acompanhar</em></h2>
-                <p class="section-intro">Processos personalizados para alinhar sua vida ao que você deseja cultivar —
-                    com método, sensibilidade e responsabilidade sistêmica.</p>
+                <p class="section-intro">Processos personalizados para promover clareza, fortalecimento emocional,
+                    posicionamento e desenvolvimento humano pessoal, alinhando sua vida, seus relacionamentos, sua
+                    prosperidade ou sua equipe aos resultados que você deseja construir. <br> <strong>• CONSTELAÇÃO
+                        FAMILIAR • CONSTELAÇÃO ORGANIZACIONAL • PALESTRAS E TREINAMENTOS </strong></p>
             </div>
 
             <div class="servicos-grid">
                 <article class="servico-card section-bg-soft reveal">
                     <div class="servico-visual">
-                        <img src="./foto-c.jpg" alt="Sessão de mentoria sistêmica">
+                        <img loading="lazy" decoding="async" src="./foto-c.jpg" alt="Sessão de mentoria sistêmica">
                     </div>
                     <div class="servico-body">
                         <span class="servico-tag">01</span>
+                        <span class="subtitle">Processo de transformação</span>
                         <h3 class="block-title">Mentoria <em>sistêmica</em></h3>
-                        <p>Você pode até tentar mudar comportamentos, controlar emoções ou “pensar positivo”.<br>
-                            Mas enquanto a raiz do padrão continuar invisível, a vida tende a repetir os mesmos
-                            ciclos.<br>
-                            A Mentoria Sistêmica é um processo estruturado de transformação, voltado para pessoas que
-                            desejam compreender com profundidade<br>
-                            os bloqueios que impactam seus relacionamentos, decisões, posicionamento, prosperidade e
-                            vida profissional.<br>
-                            Aqui, não olhamos apenas para o problema aparente.<br>
-                            O foco é identificar os movimentos emocionais, familiares e comportamentais que sustentam
-                            aquilo que hoje limita seus resultados e relações.<br>
-                            Muitas vezes, a dificuldade não está na falta de capacidade.</p>
-                        <p> <strong>Está em padrões inconscientes como:</strong></p>
+                        <h3> <em> Método Raiz da Performance Humana</em></h3>
+
+                        <p>Você pode tentar mudar comportamentos, controlar emoções ou pensar de forma mais positiva.
+                            Mas, enquanto a raiz do padrão permanecer oculta, os mesmos desafios tendem a se repetir.
+                        </p>
+
+                        <p>A Mentoria Sistêmica, através do Método Raiz da Performance Humana, é um processo estruturado
+                            de transformação que ajuda você a identificar e ressignificar padrões emocionais, familiares
+                            e comportamentais que limitam seus relacionamentos, sua prosperidade, seu posicionamento e
+                            seus resultados na vida pessoal e profissional.</p>
+
+                        <p>O método parte de um princípio simples: todo resultado externo é reflexo de uma dinâmica
+                            interna. Quando a raiz é transformada, os comportamentos, as escolhas e os resultados também
+                            se transformam.</p>
+
+                        <p>Muitas vezes, a dificuldade não está na falta de capacidade, mas em padrões inconscientes que
+                            geram:</p>
+
                         <ul class="lista-recuada">
+                            <li>Insegurança e baixa autoconfiança;</li>
                             <li>Dificuldade de se posicionar;</li>
-                            <li>Insegurança;</li>
-                            <li>Medo de perder;</li>
-                            <li>Excesso de controle;</li>
                             <li>Dependência emocional;</li>
-                            <li>Culpa;</li>
-                            <li>Necessidade de aprovação;</li>
-                            <li>Repetição de relacionamentos desgastantes;</li>
-                            <li>Conflitos familiares ou profissionais;</li>
-                            <li>Autossabotagem;</li>
-                            <li>Procrastinação; etc..</li>
+                            <li>Necessidade constante de aprovação;</li>
+                            <li>Medo de perder, errar ou ser rejeitado;</li>
+                            <li>Excesso de controle;</li>
+                            <li>Culpa e autocobrança;</li>
+                            <li>Autossabotagem e procrastinação;</li>
+                            <li>Relacionamentos desgastantes e repetitivos;</li>
+                            <li>Conflitos familiares e profissionais;</li>
+                            <li>Dificuldade para prosperar financeiramente;</li>
+                            <li>Bloqueios em relação ao dinheiro e ao merecimento;</li>
+                            <li>Estagnação profissional;</li>
+                            <li>Dificuldade para crescer, liderar ou empreender;</li>
+                            <li>Medo de se expor, vender ou cobrar pelo próprio trabalho;</li>
+                            <li>Sensação de esforço constante sem resultados proporcionais.</li>
                         </ul>
-                        <p>Através do olhar sistêmico, do autoconhecimento e de direcionamentos práticos, você
-                            desenvolve mais clareza, consciência, fortalecimento emocional e alinhamento interno para
-                            construir uma vida mais leve, saudável e coerente com quem você realmente é.</p>
+
+                        <p>Por meio da visão sistêmica e dos pilares do Método Raiz da Performance Humana — Identidade,
+                            Posicionamento e Comportamento — você desenvolve clareza, consciência e fortalecimento
+                            emocional para criar mudanças duradouras.</p>
+
+                        <p>Ao transformar a raiz dos bloqueios, você se torna uma pessoa mais segura, emocionalmente
+                            independente, consciente do seu valor e capaz de construir relacionamentos mais saudáveis,
+                            tomar decisões com confiança e alcançar resultados mais alinhados com seu potencial.</p>
+
+                        <p> <strong>O que você pode conquistar com a mentoria?</strong></p>
+
+                        <ul class="lista-recuada">
+                            <li>Mais autoestima e autoconfiança.</li>
+                            <li>Posicionamento firme e saudável.</li>
+                            <li>Liberdade emocional e autonomia.</li>
+                            <li>Relacionamentos mais equilibrados.</li>
+                            <li>Clareza para decisões pessoais e profissionais.</li>
+                            <li>Crescimento profissional com mais segurança.</li>
+                            <li>Maior prosperidade e merecimento.</li>
+                            <li>Consciência sobre padrões que limitam sua vida.</li>
+                            <li>Capacidade de construir resultados sustentáveis em todas as áreas.
+                            </li>
+                        </ul>
+                        <p>Transforme a raiz. Fortaleça sua identidade. Eleve sua performance humana.</p>
 
                     </div>
                 </article>
@@ -151,38 +232,48 @@
                 <!-- SERVIÇO 02: ORGANIZACIONAL -->
                 <article class="servico-card reveal">
                     <div class="servico-visual">
-                        <img src="constelacao-org.jpg" alt="Constelação Organizacional">
+                        <img loading="lazy" decoding="async" src="constelacao-org.jpg" alt="Constelação Organizacional">
                     </div>
                     <div class="servico-body">
                         <span class="servico-tag">02</span>
                         <span class="subtitle">Sistemas e Equilíbrio</span>
                         <h3 class="block-title">Constelação <em>Organizacional</em></h3>
-                        <p>Constelação Organizacional
-                            A Constelação Organizacional é uma abordagem sistêmica voltada para empresas, líderes e
-                            equipes que desejam compreender com mais profundidade os fatores que impactam os resultados
-                            e as relações dentro da organização.
-                            Muitos conflitos profissionais não estão apenas nos processos.</p>
-                        <p>Estão na forma como as pessoas se comunicam, se posicionam, assumem responsabilidades e se
-                            relacionam dentro do sistema organizacional.</p>
-                        <p><strong>Através do olhar sistêmico, é possível identificar dinâmicas que
-                                influenciam:</strong></p>
+
+                        <p>A Constelação Organizacional é uma abordagem sistêmica voltada para empresas, líderes e
+                            equipes que desejam compreender e solucionar desafios que afetam o desempenho, os
+                            relacionamentos e os resultados da organização.</p>
+
+                        <p>Muitos problemas corporativos não estão apenas nos processos ou na estrutura da empresa.
+                            Frequentemente, estão relacionados à forma como as pessoas se comunicam, exercem a
+                            liderança, assumem responsabilidades e se posicionam dentro do sistema organizacional.</p>
+
+                        <p><strong>Por meio da visão sistêmica, é possível identificar dinâmicas invisíveis que impactam
+                                diretamente:</strong></p>
+
                         <ul class="lista-recuada">
-                            <li>liderança;</li>
-                            <li>comunicação;</li>
-                            <li>clima organizacional;</li>
-                            <li>conflitos internos;</li>
-                            <li>baixa produtividade;</li>
-                            <li>desalinhamento entre equipes;</li>
-                            <li>resistência a mudanças;</li>
-                            <li>dificuldade na tomada de decisão;</li>
-                            <li>excesso de sobrecarga;</li>
-                            <li>falta de pertencimento e comprometimento; etc..</li>
+                            <li>Liderança e gestão de equipes;</li>
+                            <li>Comunicação interna;</li>
+                            <li>Clima organizacional;</li>
+                            <li>Conflitos entre pessoas ou setores;</li>
+                            <li>Baixa produtividade;</li>
+                            <li>Falta de alinhamento estratégico;</li>
+                            <li>Resistência a mudanças;</li>
+                            <li>Tomada de decisões;</li>
+                            <li>Sobrecarga de funções;</li>
+                            <li>Engajamento, pertencimento e comprometimento;</li>
+                            <li>Crescimento e expansão dos negócios.</li>
                         </ul>
-                        <p>Quando a empresa compreende os movimentos invisíveis que impactam o funcionamento da equipe,
-                            cria-se um ambiente mais consciente, colaborativo e alinhado aos objetivos organizacionais.
+
+                        <p>Ao compreender os movimentos que influenciam o funcionamento da organização, torna-se
+                            possível promover mais clareza, cooperação e alinhamento entre pessoas, equipes e objetivos.
                         </p>
-                        <p>A Constelação Organizacional contribui para fortalecer relações profissionais, melhorar a
-                            integração entre setores e desenvolver uma cultura mais saudável e produtiva.</p>
+
+                        <p>A Constelação Organizacional contribui para fortalecer lideranças, melhorar a integração
+                            entre setores, desenvolver equipes mais conscientes e criar uma cultura organizacional
+                            saudável, produtiva e orientada para resultados sustentáveis.</p>
+
+                        <p>Quando as relações dentro da empresa encontram equilíbrio, os resultados se tornam uma
+                            consequência natural.</p>
 
                         <!-- CORREÇÃO: onclick alterado para abrirOrganizacional -->
                         <button type="button" class="btn-text" onclick="abrirOrganizacional()">Saiba mais sobre a
@@ -193,37 +284,50 @@
                 <!-- SERVIÇO 03: FAMILIAR -->
                 <article class="servico-card reveal">
                     <div class="servico-visual">
-                        <img src="constelacao.jpg" alt="Constelação familiar">
+                        <img loading="lazy" decoding="async" src="constelacao.jpg" alt="Constelação familiar">
                     </div>
                     <div class="servico-body">
                         <span class="servico-tag">03</span>
                         <span class="subtitle">Equilíbrio e raízes</span>
                         <h3 class="block-title">Constelação <em>familiar</em></h3>
                         <p>A Constelação Familiar é uma ferramenta de autoconhecimento e desenvolvimento humano que
-                            ajuda a identificar padrões emocionais e comportamentais que influenciam sua vida, seus
-                            relacionamentos e suas decisões..</p>
-                        <p>Muitas vezes, dificuldades vividas no presente não começam apenas no agora.</p>
-                        <p>Elas podem estar ligadas a dinâmicas inconscientes e lealdades invisíveis do sistema
-                            familiar, gerando repetições, conflitos e bloqueios emocionais.</p>
-                        <p><strong>A constelação permite olhar com mais clareza para <br>questões como:</strong></p>
+                            ajuda a identificar padrões emocionais, comportamentais e relacionais que influenciam sua
+                            vida, suas escolhas e seus resultados.</p>
+                        <p>Muitas dificuldades vividas no presente não estão relacionadas apenas aos acontecimentos
+                            atuais. Frequentemente, estão ligadas a dinâmicas inconscientes, lealdades familiares
+                            invisíveis e experiências que continuam influenciando a forma como você se relaciona consigo
+                            mesmo, com os outros, com o amor, com o dinheiro e com a vida.</p>
+
+
+                        <p><strong>Através do olhar sistêmico, é possível compreender com mais clareza questões
+                                como:</strong></p>
                         <ul class="lista-recuada">
-                            <li>relacionamentos afetivos;</li>
-                            <li>dependência emocional;</li>
-                            <li>dificuldade de se posicionar;</li>
-                            <li>conflitos familiares;</li>
-                            <li>insegurança;</li>
-                            <li>medo da rejeição ou abandono;</li>
-                            <li>padrões repetitivos;</li>
-                            <li>sensação de estagnação;</li>
-                            <li>dificuldade de prosperar;</li>
-                            <li>excesso de culpa ou responsabilidade; etc..</li>
+                            <li>Relacionamentos afetivos e familiares;</li>
+                            <li>Dependência emocional;</li>
+                            <li>Dificuldade de se posicionar;</li>
+                            <li>Insegurança e baixa autoestima;</li>
+                            <li>Medo da rejeição, abandono ou perda;</li>
+                            <li>Conflitos recorrentes;</li>
+                            <li>Padrões repetitivos nos relacionamentos;</li>
+                            <li>Culpa, autocobrança e excesso de responsabilidade;</li>
+                            <li>Dificuldade de prosperar profissional e financeiramente;</li>
+                            <li>Sensação de estagnação e bloqueios para avançar;</li>
+                            <li>Falta de clareza sobre decisões e caminhos de vida.
+                            </li>
                         </ul>
-                        <p>O objetivo não é buscar culpados, mas ampliar a consciência sobre os movimentos internos que
-                            impactam sua vida e seus resultados.</p>
-                        <p>Quando você compreende aquilo que sustenta determinado padrão, novas possibilidades de
-                            posicionamento e transformação começam a surgir.</p>
-                        <p>A Constelação Familiar pode trazer mais clareza, leveza emocional e consciência para
-                            construir relações mais saudáveis e uma vida mais alinhada com quem você realmente é.</p>
+                        <p>O objetivo da Constelação Familiar não é encontrar culpados, mas ampliar a consciência sobre
+                            os movimentos internos e sistêmicos que influenciam sua realidade.</p>
+
+                        <p>Quando a raiz de um padrão é compreendida, surgem novas possibilidades de escolha,
+                            posicionamento e transformação. O que antes parecia um obstáculo pode se tornar uma
+                            oportunidade de crescimento, fortalecimento e evolução.</p>
+
+                        <p>A Constelação Familiar auxilia no desenvolvimento de relações mais saudáveis, maior
+                            equilíbrio emocional, fortalecimento da autoestima e uma vida mais alinhada com sua
+                            essência, seus valores e seu verdadeiro potencial.</p>
+
+                        <p> <strong>Ao transformar sua relação com a própria história, você transforma a forma como vive
+                                o presente e constrói o futuro.</strong></p>
 
 
 
@@ -234,13 +338,39 @@
 
                 <article class="servico-card section-bg-soft reveal">
                     <div class="servico-visual">
-                        <img src="capa.jpg" alt="Palestras e workshops">
+                        <img loading="lazy" decoding="async" src="capa.jpg" alt="Palestras e workshops">
                     </div>
                     <div class="servico-body">
                         <span class="servico-tag">04</span>
-                        <h3 class="block-title">Palestras e <em>workshops</em></h3>
-                        <p>Leve a visão sistêmica para sua empresa ou evento. Temas personalizados sobre liderança e
-                            inteligência emocional.</p>
+                        <span class="subtitle">Para empresas e eventos</span>
+                        <h3 class="block-title">Palestras e <br> <em>Treinamentos Sistêmicos
+                            </em></h3>
+
+                        <p>Leve a visão sistêmica para sua empresa ou evento e desenvolva equipes mais alinhadas,
+                            engajadas e preparadas para gerar resultados sustentáveis.</p>
+
+                        <p>Com uma abordagem prática e transformadora, as palestras e treinamentos trabalham temas como
+                            liderança, inteligência emocional, comunicação assertiva, trabalho em equipe, gestão de
+                            conflitos, autorresponsabilidade e desenvolvimento humano.</p>
+
+                        <p>Os conteúdos são personalizados de acordo com os objetivos da organização, promovendo maior
+                            integração entre as pessoas, fortalecimento da cultura organizacional e melhoria do
+                            desempenho individual e coletivo.</p>
+
+                        <p> <strong>Benefícios para sua equipe:</strong></p>
+
+                        <ul class="lista-recuada">
+                            <li>Comunicação mais eficiente;</li>
+                            <li>Maior comprometimento e colaboração;</li>
+                            <li>Lideranças mais conscientes e preparadas;</li>
+                            <li>Inteligência emocional aplicada aos desafios do dia a dia;</li>
+                            <li>Ambiente de trabalho mais saudável e produtivo.</li>
+                        </ul>
+
+                        <p> <strong>Transforme pessoas para fortalecer resultados.</strong></p>
+
+                        <p>Entre em contato e solicite uma proposta personalizada para sua empresa ou evento.</p>
+
                         <button type="button" class="btn-outline open-modal">Solicitar Orçamento</button>
                     </div>
                 </article>
@@ -338,7 +468,8 @@
                 <!-- Vídeo 1 -->
                 <div class="video-card">
                     <div class="video-container">
-                        <iframe src="https://player.cloudinary.com/embed/?cloud_name=demj1hqyo&public_id=video01_edtlft"
+                        <iframe loading="lazy"
+                            src="https://player.cloudinary.com/embed/?cloud_name=demj1hqyo&public_id=video01_edtlft"
                             width="640" height="360" style="height: auto; width: 100%; aspect-ratio: 640 / 360;"
                             allow="autoplay; fullscreen; encrypted-media; picture-in-picture" allowfullscreen
                             frameborder="0"></iframe>
@@ -351,7 +482,8 @@
                 <!-- Vídeo 2 -->
                 <div class="video-card">
                     <div class="video-container">
-                        <iframe src="https://player.cloudinary.com/embed/?cloud_name=demj1hqyo&public_id=video02_wojaan"
+                        <iframe loading="lazy"
+                            src="https://player.cloudinary.com/embed/?cloud_name=demj1hqyo&public_id=video02_wojaan"
                             width="640" height="360" style="height: auto; width: 100%; aspect-ratio: 640 / 360;"
                             allow="autoplay; fullscreen; encrypted-media; picture-in-picture" allowfullscreen
                             frameborder="0"></iframe>
@@ -364,7 +496,8 @@
                 <!-- Vídeo 3 -->
                 <div class="video-card">
                     <div class="video-container">
-                        <iframe src="https://player.cloudinary.com/embed/?cloud_name=demj1hqyo&public_id=video_cf43qr"
+                        <iframe loading="lazy"
+                            src="https://player.cloudinary.com/embed/?cloud_name=demj1hqyo&public_id=video_cf43qr"
                             width="640" height="360" style="height: auto; width: 100%; aspect-ratio: 640 / 360;"
                             allow="autoplay; fullscreen; encrypted-media; picture-in-picture" allowfullscreen
                             frameborder="0"></iframe>
@@ -378,15 +511,48 @@
             </div>
         </section>
 
+        <section id="faq" class="section section-faq" aria-labelledby="faq-heading">
+            <div class="section-heading reveal">
+                <span class="section-label">Dúvidas</span>
+                <h2 id="faq-heading" class="section-title">Perguntas <em>frequentes</em></h2>
+            </div>
+            <div class="faq-list reveal">
+                <details>
+                    <summary>O que é a constelação familiar?</summary>
+                    <p>É uma ferramenta de autoconhecimento que ajuda a identificar padrões emocionais e comportamentais
+                        ligados ao sistema familiar, ampliando a consciência sobre aquilo que sustenta repetições,
+                        conflitos e bloqueios.</p>
+                </details>
+                <details>
+                    <summary>Como faço para agendar?</summary>
+                    <p>Basta clicar em “Agendar uma conversa”: você preenche o formulário com seus dados e eu entro em
+                        contato para combinarmos o melhor formato e horário. Se preferir, também pode chamar direto pelo
+                        WhatsApp.</p>
+                </details>
+                <details>
+                    <summary>As práticas substituem acompanhamento médico ou psicológico?</summary>
+                    <p>Não. O trabalho sistêmico é complementar e não substitui o acompanhamento de profissionais de
+                        saúde.</p>
+                </details>
+                <details>
+                    <summary>Atende empresas e equipes?</summary>
+                    <p>Sim. A constelação organizacional, as palestras e os workshops são voltados a líderes, equipes e
+                        eventos.</p>
+                </details>
+            </div>
+        </section>
+
         <section class="section-cta reveal" aria-labelledby="cta-heading">
             <div class="cta-inner">
                 <h2 id="cta-heading" class="cta-title">Pronta para dar o próximo <em>passo</em>?</h2>
                 <p class="cta-copy">Escolha o canal que for mais confortável para você. Estou aqui para responder com
                     calma e clareza.</p>
                 <div class="cta-actions">
-                    <button type="button" class="btn-primary btn-lg open-modal">Solicitar Orçamento</button>
-                    <a href="https://wa.me/5599988219080" class="btn-outline btn-lg btn-light-outline" target="_blank"
-                        rel="noopener noreferrer">WhatsApp</a>
+                    <!-- ALTERADO: js-agendar -->
+                    <a class="btn-primary btn-lg js-agendar"
+                        href="https://wa.me/5599988219080?text=Ol%C3%A1%2C%20Cleiciane%21%20Vim%20pelo%20seu%20site%20e%20gostaria%20de%20agendar%20uma%20conversa."
+                        target="_blank" rel="noopener noreferrer">Agendar uma conversa</a>
+                    <a href="#faq" class="btn-outline btn-lg btn-light-outline">Ver perguntas frequentes</a>
                 </div>
             </div>
         </section>
@@ -419,20 +585,22 @@
                 <p class="footer-heading">Navegação</p>
                 <a href="#sobre">Sobre</a>
                 <a href="#servicos">Serviços</a>
-                <a href="#videos">Vídeos</a>
                 <a href="#depoimentos">Depoimentos</a>
+                <a href="#videos">Vídeos</a>
                 <a href="#contato">Contato</a>
             </div>
         </div>
 
         <div class="footer-bottom">
             <p class="copyright">© 2026 Cleiciane Dias. Todos os direitos reservados.</p>
+            <p class="disclaimer">As práticas sistêmicas são complementares e não substituem acompanhamento médico,
+                psicológico ou psiquiátrico.</p>
             <p class="site-credit">Feito por Natanael Teixeira</p>
         </div>
     </footer>
 
-    <!-- MODAL DE ORÇAMENTO -->
-    <div id="modal-form" class="modal">
+    <!-- MODAL DE ORÇAMENTO / AGENDAMENTO -->
+    <div id="modal-form" class="modal" role="dialog" aria-modal="true">
         <div class="modal-content">
             <span class="close-btn" onclick="fecharModal()" aria-label="Fechar">&times;</span>
             <div class="form-header">
@@ -459,18 +627,27 @@
                     <label for="servico">Serviço de interesse</label>
                     <select id="servico" name="servico">
                         <option value="Mentoria">Mentoria sistêmica</option>
-                        <option value="Constelação">Constelação familiar</option>
+                        <option value="Constelação familiar">Constelação familiar</option>
+                        <option value="Constelação organizacional">Constelação organizacional</option>
                         <option value="Palestra">Palestras / workshops</option>
                     </select>
                 </div>
 
+                <p class="form-msg" id="form-msg" role="status"></p>
+                <p class="form-note">Seus dados são usados apenas para responder ao seu contato.</p>
                 <button type="submit" class="btn-primary btn-full">Enviar solicitação</button>
+
+                <!-- NOVO: alternativa via WhatsApp dentro do formulário -->
+                <p class="form-alt">Prefere conversar agora?
+                    <a href="https://wa.me/5599988219080?text=Ol%C3%A1%2C%20Cleiciane%21%20Vim%20pelo%20seu%20site%20e%20gostaria%20de%20agendar%20uma%20conversa."
+                        target="_blank" rel="noopener noreferrer">Chamar no WhatsApp</a>
+                </p>
             </form>
         </div>
     </div>
 
     <!-- MODAL DA CONSTELAÇÃO FAMILIAR -->
-    <div id="modal-origem" class="modal">
+    <div id="modal-origem" class="modal" role="dialog" aria-modal="true">
         <div class="modal-content modal-scroll">
             <span class="close-btn" onclick="fecharOrigem()" aria-label="Fechar">&times;</span>
             <div class="form-header">
@@ -490,7 +667,7 @@
     </div>
 
     <!-- MODAL DA CONSTELAÇÃO ORGANIZACIONAL -->
-    <div id="modal-organizacional" class="modal">
+    <div id="modal-organizacional" class="modal" role="dialog" aria-modal="true">
         <div class="modal-content modal-scroll">
             <span class="close-btn" onclick="fecharOrganizacional()" aria-label="Fechar">&times;</span>
             <div class="form-header">
@@ -529,15 +706,30 @@
                         encontrar soluções para desafios, como reestruturações ou planejamento estratégico.</li>
 
                 </ul>
-                <P>A prática é amplamente utilizada para desenvolver lideranças e solucionar desafios persistentes que
-                    métodos tradicionais de gestão não resolvem.</P>
+                <p>A prática é amplamente utilizada para desenvolver lideranças e solucionar desafios persistentes que
+                    métodos tradicionais de gestão não resolvem.</p>
 
             </div>
             <button type="button" class="btn-primary btn-full" onclick="fecharOrganizacional()">Entendi</button>
         </div>
     </div>
 
+    <a class="whats-float" href="https://wa.me/5599988219080" target="_blank" rel="noopener noreferrer"
+        aria-label="Falar pelo WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2z" />
+            <circle cx="8" cy="12" r="1.3" fill="#1fa855" />
+            <circle cx="12" cy="12" r="1.3" fill="#1fa855" />
+            <circle cx="16" cy="12" r="1.3" fill="#1fa855" />
+        </svg><span>WhatsApp</span></a>
+
+    <!-- ALTERADO: js-agendar -->
+    <div class="mobile-bar"><a class="btn-primary btn-full js-agendar"
+            href="https://wa.me/5599988219080?text=Ol%C3%A1%2C%20Cleiciane%21%20Vim%20pelo%20seu%20site%20e%20gostaria%20de%20agendar%20uma%20conversa."
+            target="_blank" rel="noopener noreferrer">Agendar uma conversa</a></div>
+
     <script src="script.js"></script>
+    <!-- NOVO: botão Agendar abre o formulário (carregar depois do script.js) -->
+    <script src="ajustes.js"></script>
 </body>
 
 </html>
